@@ -8,8 +8,8 @@ const createPosts = async () => {
     return {
       title: faker.lorem.sentence(),
       author: faker.name.firstName(),
-      content: faker.lorem.paragraph(),
-      imgUrl: faker.internet.url(),
+      content: faker.lorem.paragraph,
+      imgUrl: faker.internet.url,
     }
   })
   await Post.insertMany(posts)

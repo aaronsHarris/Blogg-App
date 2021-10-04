@@ -7,9 +7,9 @@ const createPosts = async () => {
   let posts = [...Array(20)].map(item => {
     return {
       title: faker.lorem.sentence(),
-      author: faker.name.firstName(),
-      content: faker.lorem.paragraph(),
-      imgUrl: faker.internet.url(),
+      author: faker.name.firstName,
+      content: faker.lorem.paragraph,
+      imgUrl: faker.internet.url,
     }
   })
   await Post.insertMany(posts)

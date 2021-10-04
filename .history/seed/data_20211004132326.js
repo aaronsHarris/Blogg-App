@@ -6,14 +6,10 @@ const createPosts = async () => {
   await db.dropDatabase()
   let posts = [...Array(20)].map(item => {
     return {
-      title: faker.lorem.sentence(),
-      author: faker.name.firstName(),
-      content: faker.lorem.paragraph(),
-      imgUrl: faker.internet.url(),
+      title: faker.lorem.sentence,
+      author: faker.lorem.author,
+      content: { type: String, required: true },
+      imgUrl: { type: String, required: false },
     }
   })
-  await Post.insertMany(posts)
-  db.close()
 }
-
-createPosts()
