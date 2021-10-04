@@ -9,9 +9,5 @@ const Post = new Schema(
     imgUrl: { type: String, required: false },
 
   },
-  {
-    timestamps: true
-  }
+  {}
 )
-
-export default mongoose.model("posts", Post)

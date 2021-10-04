@@ -14,4 +14,4 @@ const Post = new Schema(
   }
 )
 
-export default mongoose.model("posts", Post)
+export default mongoose.model("osts")

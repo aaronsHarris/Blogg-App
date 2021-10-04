@@ -10,8 +10,6 @@ const Post = new Schema(
 
   },
   {
-    timestamps: true
+    timestamps
   }
 )
-
-export default mongoose.model("posts", Post)
