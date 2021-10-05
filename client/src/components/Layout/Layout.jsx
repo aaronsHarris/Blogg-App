@@ -2,7 +2,7 @@ import React from 'react'
 import { Nav } from '../Nav/Nav'
 import { Footer } from '../Footer/Footer'
 
-export const Layout = (props) => {
+export default function Layout(props) {
   return (
     <div className='layout'>
       <Nav />
