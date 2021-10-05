@@ -4,10 +4,12 @@ import CreatePosts from './screens/CreatePosts/CreatePosts'
 import EditPost from './screens/EditPost/EditPost'
 import PostDetails from './screens/PostDetails/PostDetails'
 import './App.css';
+import { Nav } from './components/Nav/Nav';
 
 function App() {
   return (
     <div className="App">
+      <Nav />
       <Route exact path='/'>
         <Posts />
       </Route>
