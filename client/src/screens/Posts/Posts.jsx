@@ -5,6 +5,7 @@ import Layout from "../../components/Layout/Layout.jsx"
 import { getPosts } from "../../services/posts"
 import Post from '../../components/Post/Post'
 export default function Posts() {
+
   const [posts, setPosts] = useState([]);
 
 
