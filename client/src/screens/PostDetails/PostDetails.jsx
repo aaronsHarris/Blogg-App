@@ -20,6 +20,7 @@ export default function PostDetails() {
     fetchPost();
   }, [id])
 
+
   if (!isLoaded) {
     return <h1>Loading...</h1>
   }
@@ -32,7 +33,10 @@ export default function PostDetails() {
           <h3>{post.title}</h3>
           <h4>{post.author}</h4>
           <p>{post.content}</p>
-          <div className="button-container"></div>
+          <div className="button-container">
+            <button className="edit-button"><Link to={`/posts/${id}/edit`} className="edit-link">Edit</Link></button>
+            <button className="delete-button" onClick={() => deletePost(id)}>Delete</button>
+          </div>
         </div>
       </div>
     </Layout>
