@@ -9,7 +9,7 @@ const createPosts = async () => {
       title: faker.lorem.sentence(),
       author: faker.name.firstName(),
       content: faker.lorem.paragraph(),
-      imgUrl: faker.internet.url(),
+      imgUrl: `${faker.image.animals()}? random = ${Math.round(Math.random() * 1000)}`,
     }
   })
   await Post.insertMany(posts)
