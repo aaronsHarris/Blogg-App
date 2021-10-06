@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Posts() {
+export const Layout = () => {
   return (
     <div>
-        
+      <nav
     </div>
   )
 }
