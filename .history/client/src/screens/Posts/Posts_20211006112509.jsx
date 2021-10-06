@@ -13,6 +13,7 @@ export default function Posts() {
     const fetchPosts = async () => {
       const allPosts = await getPosts();
       setPosts(allPosts)
+      console.log(allPosts)
     }
     fetchPosts()
   }, [])

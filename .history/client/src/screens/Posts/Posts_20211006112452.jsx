@@ -13,6 +13,7 @@ export default function Posts() {
     const fetchPosts = async () => {
       const allPosts = await getPosts();
       setPosts(allPosts)
+      console.log(allPosts)
     }
     fetchPosts()
   }, [])
@@ -27,8 +28,7 @@ export default function Posts() {
               title={post.title}
               author={post.author}
               content={post.content}
-              imgUrl={post.imgUrl}
-              key={post._id}
+              imgUrl={post.imgUrl}\
             />
           )
         })}
