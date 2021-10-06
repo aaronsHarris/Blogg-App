@@ -24,7 +24,7 @@ export default function Posts() {
       <div className="posts">
         {posts.map((post) => {
           return (
-            <Post
+            <Post id={post._id}
               title={post.title}
               author={post.author}
               content={post.content}
