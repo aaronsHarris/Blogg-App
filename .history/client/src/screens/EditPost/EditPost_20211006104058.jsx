@@ -64,7 +64,7 @@ export default function EditPost() {
         </div>
         <form className='edit-form' onSubmit={handleSubmit}>
           <input
-            className='input-title'
+            className='input-name'
             placeholder='Title'
             value={post.title}
             name='title'

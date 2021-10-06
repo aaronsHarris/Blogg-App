@@ -7,7 +7,7 @@ import { getPost, updatePost } from "../../services/posts"
 
 
 export default function EditPost() {
-  const [post, setPosts] = useState({
+  const [posts, setPosts] = useState({
     title: "",
     author: "",
     content: "",
@@ -15,26 +15,26 @@ export default function EditPost() {
   })
   const [isUpdated, setUpdated] = useState(false)
   let { id } = useParams()
-
+  
   useEffect(() => {
     const fetchPost = async () => {
       const post = await getPost(id)
-      setPosts(post)
+      setPosts(post)  
     }
-    fetchPost()
+      fetchPost()
   }, [id])
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setPosts({
-      ...post,
+      ...product,
       [name]: value,
     })
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const updated = await updatePost(id, post)
+    const updated = await updatePost(id, posts)
     setUpdated(updated)
   }
 
@@ -48,14 +48,14 @@ export default function EditPost() {
         <div className='image-container'>
           <img
             className='edit-posts-image'
-            src={post.imgUrl}
-            alt={post.title}
+            src={product.imgUrl}
+            alt={product.title}
           />
           <form onSubmit={handleSubmit}>
             <input
               className='edit-input-image-link'
               placeholder='Image Link'
-              value={post.imgUrl}
+              value={product.imgUrl}
               name='imgUrl'
               required
               onChange={handleChange}
@@ -64,29 +64,29 @@ export default function EditPost() {
         </div>
         <form className='edit-form' onSubmit={handleSubmit}>
           <input
-            className='input-title'
+            className='input-name'
             placeholder='Title'
-            value={post.title}
-            name='title'
+            value={product.title}
+            name='name'
             required
             autoFocus
             onChange={handleChange}
           />
           <input
             className='input-author'
-            placeholder='Author'
-            value={post.author}
-            name='author'
+            placeholder='Price'
+            value={product.price}
+            name='price'
             required
             onChange={handleChange}
           />
           <textarea
-            className='textarea-content'
+            className='textarea-description'
             rows={10}
             cols={78}
-            placeholder='Content'
-            value={post.content}
-            name='content'
+            placeholder='Description'
+            value={product.description}
+            name='description'
             required
             onChange={handleChange}
           />
@@ -95,6 +95,6 @@ export default function EditPost() {
           </button>
         </form>
       </div>
-    </Layout>
+   </Layout>
   )
 }

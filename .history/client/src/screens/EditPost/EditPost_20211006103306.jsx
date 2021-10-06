@@ -7,7 +7,7 @@ import { getPost, updatePost } from "../../services/posts"
 
 
 export default function EditPost() {
-  const [post, setPosts] = useState({
+  const [posts, setPosts] = useState({
     title: "",
     author: "",
     content: "",
@@ -15,26 +15,26 @@ export default function EditPost() {
   })
   const [isUpdated, setUpdated] = useState(false)
   let { id } = useParams()
-
+  
   useEffect(() => {
     const fetchPost = async () => {
       const post = await getPost(id)
-      setPosts(post)
+      setPosts(post)  
     }
-    fetchPost()
+      fetchPost()
   }, [id])
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setPosts({
-      ...post,
+      ...product,
       [name]: value,
     })
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const updated = await updatePost(id, post)
+    const updated = await updatePost(id, posts)
     setUpdated(updated)
   }
 
@@ -49,7 +49,7 @@ export default function EditPost() {
           <img
             className='edit-posts-image'
             src={post.imgUrl}
-            alt={post.title}
+            alt={product.title}
           />
           <form onSubmit={handleSubmit}>
             <input
@@ -64,7 +64,7 @@ export default function EditPost() {
         </div>
         <form className='edit-form' onSubmit={handleSubmit}>
           <input
-            className='input-title'
+            className='input-name'
             placeholder='Title'
             value={post.title}
             name='title'
@@ -95,6 +95,6 @@ export default function EditPost() {
           </button>
         </form>
       </div>
-    </Layout>
+   </Layout>
   )
 }
