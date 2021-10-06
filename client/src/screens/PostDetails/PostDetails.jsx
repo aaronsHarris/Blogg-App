@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useHistory } from "react-router-dom"
 import "./PostDetails.css"
 import Layout from "../../components/Layout/Layout"
 import { getPost, deletePost } from "../../services/posts"
@@ -9,6 +9,7 @@ export default function PostDetails() {
   const [post, setPost] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const { id } = useParams();
+  const history = useHistory();
 
 
   useEffect(() => {
@@ -19,6 +20,12 @@ export default function PostDetails() {
     }
     fetchPost();
   }, [id])
+
+
+  const handleDelete = () => {
+    deletePost(id)
+    history.push("/")
+  }
 
 
   if (!isLoaded) {
@@ -35,7 +42,7 @@ export default function PostDetails() {
           <p>{post.content}</p>
           <div className="button-container">
             <button className="edit-button"><Link to={`/posts/${id}/edit`} className="edit-link">Edit</Link></button>
-            <button className="delete-button" onClick={() => deletePost(id)}>Delete</button>
+            <button className="delete-button" onClick={handleDelete}>Delete</button>
           </div>
         </div>
       </div>
